@@ -1,0 +1,43 @@
+#spring:
+#  datasource:
+#    url: jdbc:mysql://localhost:3306/test?serverTimezone=UTC    # 这个不能放在hikari数据源中
+#    hikari:
+#      driver-class-name: com.mysql.cj.jdbc.Driver
+#      username: root
+#      password: 123456
+#      maximum-pool-size: 50 #最大连接数
+#
+#mybatis-plus:
+#  global-config:
+#    db-config:
+#      table-prefix: tbl_
+#      id-type: auto
+#  configuration:
+#    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+
+# h2数据库
+server:
+  port: 80
+
+spring:
+  h2:
+    console:
+      enabled: true         # true 开启h2数据库  false  关闭h2数据库
+      path: /h2             # h2数据库访问路径：端口号＋/h2
+  datasource:
+    url: jdbc:h2:~/test     # h2数据库连接地址
+    hikari:
+      driver-class-name: org.h2.Driver    # h2数据库驱动  这个可写可不写
+      username: sa          # h2数据库用户
+      password: 123456      # h2数据库密码
+      maximum-pool-size: 50 #最大连接数
+
+# h2数据库用mybatis
+mybatis-plus:
+  global-config:
+    db-config:
+      table-prefix: tbl_
+      id-type: auto
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl

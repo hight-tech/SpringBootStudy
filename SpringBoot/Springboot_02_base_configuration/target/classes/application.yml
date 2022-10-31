@@ -1,0 +1,26 @@
+server:
+  port: 81
+  servlet:
+    context-path: /test
+
+user: 张三
+
+user1:
+  name: 张三123
+
+likes:
+  - game
+  - music
+  - sleep
+
+baseDir: c:\windows
+# 使用${属性名}引用数据
+tempDir: ${baseDir}\temp
+# 使用引号包裹的字符串，其中的转义字符可以生效
+tempDir2: "${baseDir}\temp \t1  \t2 \t3"
+
+datasource:
+  driver: com.mysql.jdbc.Driver
+  url: jdbc:mysql://localhost:3306/test
+  name: root
+  password: 12345678

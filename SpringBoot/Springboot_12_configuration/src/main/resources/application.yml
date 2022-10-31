@@ -1,0 +1,17 @@
+servers:
+  ipAddress: 192.168.0.1   # 驼峰
+#  ipaddress: 192.168.0.1
+#  ip-address: 192.168.0.1  # 烤肉串模式   0-0-0-0-----
+#  ip_address: 192.168.0.1  # unline
+#  ip_Address: 192.168.0.2
+#  IPADDRESS: 192.168.0.2   # 常量
+#  IP_ADDRESS: 192.168.0.2
+#  IP_ADD_R-E_SS: 192.168.0.2
+  port: 2345
+  timeout: -1
+  serverTimeOut: 3
+  dataSize: 10MB
+
+dataSource:
+  driverClassName: com.mysql.jdbc.Driver456
+  password: "0127" # 0127 会变成八进制 然后在转为十进制最后变为87=64+16+7     解决方法：加引号。如"0127"

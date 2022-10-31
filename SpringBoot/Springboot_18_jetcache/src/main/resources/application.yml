@@ -1,0 +1,50 @@
+server:
+  port: 80
+
+mybatis-plus:
+  global-config:
+    db-config:
+      table-prefix: tbl_
+      id-type: auto
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+spring:
+  datasource:
+    druid:
+      url: jdbc:mysql://localhost:3306/test?serverTimezone=UTC
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      username: root
+      password: 123456
+
+# jetcache缓存
+jetcache:
+  # 开启缓存统计功能 1分钟统计一次
+  statIntervalMinutes: 1
+  # 本地缓存
+  local:
+    default:
+      # LinkeHashMap缓存
+      type: linkedhashmap
+      keyConvertor: fastjson
+  # 远程缓存
+  remote:
+    # 默认的
+    default:
+      # 使用redis做缓存
+      type: redis
+      host: localhost
+      port: 6379
+      keyConvertor: fastjson
+      valueEncode: java
+      valueDecode: java
+      # 缓存配置
+      poolConfig:
+        maxTotal: 50
+    # 自定义的
+    sms:
+      type: redis
+      host: localhost
+      port: 6379
+      poolConfig:
+        maxTotal: 50

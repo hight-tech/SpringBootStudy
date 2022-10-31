@@ -1,0 +1,38 @@
+
+
+spring:
+  datasource:
+    druid:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      url: jdbc:mysql://localhost:3306/test?serverTimezone=UTC
+      username: root
+      password: 123456
+  devtools:
+    restart:
+      # 设置不参与热部署的文件或文件夹
+      exclude: static/**,public/**,config/application.yml
+      # 关闭热部署
+#      enabled: false
+
+
+mybatis-plus:
+  global-config:
+    db-config:
+      table-prefix: tbl_
+      id-type: auto
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+test:
+  prop: testValue
+
+testcase:
+  book:
+    id: ${random.int}           # 随机整数
+    id2: ${random.int(10)}      # 随机1-10的整数
+    type: ${random.int(5,10)}   # 随机5-10的整数   其中()可以是任意字符，例如[],!!均可
+    name: ${random.value}       # 随机字符串，md5字符串，32位
+    uuid: ${random.uuid}        # 随机uuid
+    publishTime: ${random.long} # 随机整数（Long范围）
+
+

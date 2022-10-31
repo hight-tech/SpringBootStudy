@@ -1,0 +1,50 @@
+server:
+  port: 80
+
+spring:
+  datasource:
+    druid:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      url: jdbc:mysql://localhost:3306/test?serverTimezone=UTC
+      username: root
+      password: 123456
+
+#mybatis-plus:
+#  global-config:
+#    db-config:
+#      table-prefix: tbl_
+#      id-type: auto
+#  configuration:
+#    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+
+## spring boot client 配置
+  boot:
+    admin:
+      client:
+        url: http://localhost:8080
+
+
+management:
+  endpoint:
+    health: #端点名称
+      show-details: always
+    info:
+      enabled: true
+  # 启用所有端点
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+    enabled-by-default: true
+
+##info显示的信息 不知道为啥我的没有用
+info:
+  # 项目名称
+  appName: @project.artifactId@
+  # 版本
+  version: @project.version@
+  # 描述
+  description: @project.description@
+  # 作者
+  author: yangruirong

@@ -1,0 +1,40 @@
+#debug: true
+
+logging:
+  # 设置分组
+  group:
+    ebank: com.yang.controller,com.yang.service,com.yang.dao
+    iservice: com.alibaba
+
+  level:
+    root: info
+    # 设置某个包的日期级别
+#    com.yang.controller: debug
+    # 设置分组，对某个组设置日志级别
+    ebank: warn
+
+  # 设置日期模板格式
+  pattern:
+#    console: "%d - %m %n"
+    # %d表示日期
+    # %clr()表示加颜色  {cyan}表示青色 {red} 红色
+    # %5p  p表示日志 5表示占5个位置
+    # %16t t表示线程 16表示占位16位
+    # %c 表示类名
+    # %-40c -40表示左对齐占40个位置
+    # %-40.40c 40表示对超过的内容的截取 就是取后面40个字符
+    # %m 表示信息
+    # %n 表示换行
+    console: "%d %clr(%5p) ---[%16t] %clr(%-40.40c){cyan} :%m %n"
+
+  # 日志文件配置
+  file:
+    name: server.log
+  logback:
+    rollingpolicy:
+      # 设置日志文件大小
+      max-file-size: 4KB
+      # %d表示时间如2022-08-01 %i 表示第几个文件  如server.2022-08-01.0.log
+      file-name-pattern: server.%d{yyyy-MM-dd}.%i.log
+
+
